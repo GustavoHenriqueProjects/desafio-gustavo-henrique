@@ -1,4 +1,4 @@
-import { verificarItens } from "../controller/validar-carrinho.js"
+import { verificarItens, verificarFormaPagamento } from "../controller/validar-carrinho.js"
 import {valorDinheiro, valorCredito, valorDebito} from "./calculo.js"
  
 const pagamentoDinheiro = (itens) =>{
@@ -27,23 +27,36 @@ const statusCaixa = (metodoDePagamento, itens) => {
 
     let statusItensVazio = verificarItens(itens)
     if (statusItensVazio) {
+
         return statusItensVazio
+        
     } else{
 
-        if(metodoDePagamento == "dinheiro"){
+        let erroTipoPagamento = verificarFormaPagamento(metodoDePagamento)
 
-            let totalDinheiro = pagamentoDinheiro(itens)
-            valorPagamento = totalDinheiro
-        } else if (metodoDePagamento == "credito"){
-            let totalCredito = pagamentoCredito(itens)
-            valorPagamento = totalCredito
-        }else if (metodoDePagamento == "debito"){
-            
-            let totalDebito = pagamentoDebito(itens)
-            valorPagamento = totalDebito
+        if(!erroTipoPagamento){
+            if(metodoDePagamento == "dinheiro"){
+
+                let totalDinheiro = pagamentoDinheiro(itens)
+                valorPagamento = totalDinheiro
+
+            } else if (metodoDePagamento == "credito"){
+
+                let totalCredito = pagamentoCredito(itens)
+                valorPagamento = totalCredito
+
+            }else if (metodoDePagamento == "debito"){
+                
+                let totalDebito = pagamentoDebito(itens)
+                valorPagamento = totalDebito
+
+            }
+            return valorPagamento
+
+        }else{
+
+            return erroTipoPagamento
         }
-
-        return valorPagamento
     }
 }
 

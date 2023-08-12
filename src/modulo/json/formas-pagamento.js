@@ -1,4 +1,4 @@
-var formasPagamento = [
+var formaPagamentoDB = [
     {
         "id" : 1,
         "tipo" : "dinheiro"
@@ -14,5 +14,5 @@ var formasPagamento = [
 ]
 
 export {
-    formasPagamento
+    formaPagamentoDB
 };

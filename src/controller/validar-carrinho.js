@@ -1,5 +1,6 @@
-import { ERRO_ITENS, ERRO_QUANTIDADE_ITENS, ERRO_ITEM_INVALIDO } from "./modulo/config.js";
+import { ERRO_ITENS, ERRO_QUANTIDADE_ITENS, ERRO_ITEM_INVALIDO, ERRO_FORMA_PAGAMENTO } from "./modulo/config.js";
 import { cardapioDB } from "../modulo/json/cardapio.js";
+import { formaPagamentoDB } from "../modulo/json/formas-pagamento.js";
 
 const verificarItens = (itens) => {
 
@@ -29,10 +30,18 @@ const verificarItens = (itens) => {
     return statusItens;
 }
 
-const verificarFormaPagamento = () =>{
-    
+const verificarFormaPagamento = (tipoPagamento) =>{
+
+    const formaPagamento = tipoPagamento
+    const statusTipoPagamento = formaPagamentoDB.find(entry => entry.tipo === formaPagamento)
+
+    if(!statusTipoPagamento) {
+        let statusFormaPagamento = ERRO_FORMA_PAGAMENTO.message
+        return statusFormaPagamento
+    }
 }
 
 export {
-    verificarItens
+    verificarItens,
+    verificarFormaPagamento
 }
