@@ -1,13 +1,22 @@
-import { valificarItens } from "./controller/validar-carrinho.js";
+import { statusCaixa } from "./services/statusCaixa.js";
 
 class CaixaDaLanchonete {
 
     calcularValorDaCompra(metodoDePagamento, itens) {
 
-        const status = valificarItens(itens);
+        let status = statusCaixa(metodoDePagamento, itens)
+
         return  status;
     }
 
 }
 
 export { CaixaDaLanchonete };
+
+
+// const DB = (metodoDePagamento, itens) => {
+//     let status = statusCaixa(metodoDePagamento, itens)
+//     console.log(status);
+// }
+
+// DB("dinheiro", ["cafe,1"])
