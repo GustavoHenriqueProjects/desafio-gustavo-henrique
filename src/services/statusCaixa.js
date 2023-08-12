@@ -29,6 +29,7 @@ const statusCaixa = (metodoDePagamento, itens) => {
     if (statusItensVazio) {
         return statusItensVazio
     } else{
+
         if(metodoDePagamento == "dinheiro"){
 
             let totalDinheiro = pagamentoDinheiro(itens)

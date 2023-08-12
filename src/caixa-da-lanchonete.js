@@ -16,7 +16,7 @@ export { CaixaDaLanchonete };
 
 // const DB = (metodoDePagamento, itens) => {
 //     let status = statusCaixa(metodoDePagamento, itens)
-//     console.log(status);
+//     console.log(status)
 // }
 
-// DB("dinheiro", ["cafe,1"])
+// DB("dinheiro", ["pizza,1"])
