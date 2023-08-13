@@ -48,4 +48,18 @@ describe('CaixaDaLanchonete', () => {
         ['queijo com outro item', 'debito', 'Item extra não pode ser pedido sem o principal', ['queijo,1', 'cafe,1']],
     ])('compra %p em %p deve resultar em %p', (_, formaDePagamento, resultadoEsperado, itens) =>
         validaTeste(formaDePagamento, resultadoEsperado, itens));
+
+        /********************************** IMPLEMENTANDO NOVOS TESTES **********************************************************/
+        test.each([
+            ['dinheiro', 'R$ 14,72', ['combo1,1','cafe,2']],
+            ['credito', 'R$ 15,96', ['combo1,1','cafe,2']],
+            ['debito', 'R$ 15,50', ['combo1,1','cafe,2']],
+        ])('compra de Combo em %p deve resultar em %p', validaTeste);
+
+        test.each([
+            ['sem o tipo de pagamento', '', 'Forma de pagamento inválida!', ['cafe,1', 'sanduiche,1', 'queijo,1']],
+            ['sem o tipo de pagamento', '', 'Forma de pagamento inválida!', ['cafe,1', 'sanduiche,1', 'queijo,1']],
+            ['sem o tipo de pagamento', '', 'Forma de pagamento inválida!', ['cafe,1', 'sanduiche,1', 'queijo,1']],
+        ])('compra %p em %p deve resultar em %p', (_, formaDePagamento, resultadoEsperado, itens) =>
+            validaTeste(formaDePagamento, resultadoEsperado, itens));
 });
