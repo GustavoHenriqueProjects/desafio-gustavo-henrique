@@ -10,11 +10,3 @@ class CaixaDaLanchonete {
 }
 
 export { CaixaDaLanchonete };
-
-
-// const DB = (metodoDePagamento, itens) => {
-//     let status = statusCaixa(metodoDePagamento, itens)
-//     console.log(status)
-// }
-
-// DB("dinheiro", ["pizza,1"])
