@@ -1,4 +1,11 @@
-import { cardapioDB } from "../modulo/json/cardapio.js";
+/************************************************************************
+ * Objetivo: Realizar os calculos de preço com relação ao total de itens,
+ * de acordo com a forma de pagamento selecionada pelo cliente.
+ * Data: 11/08/2023
+ * Versão: 1.0
+ **********************************************************************/
+
+import { cardapioDB } from "../model/cardapio.js";
 
 const valorDinheiro = (itens) => {
 

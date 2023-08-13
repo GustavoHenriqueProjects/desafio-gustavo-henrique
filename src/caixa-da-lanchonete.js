@@ -5,10 +5,8 @@ class CaixaDaLanchonete {
     calcularValorDaCompra(metodoDePagamento, itens) {
 
         let status = statusCaixa(metodoDePagamento, itens)
-
         return  status;
     }
-
 }
 
 export { CaixaDaLanchonete };

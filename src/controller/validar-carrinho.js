@@ -1,6 +1,13 @@
+/*******************************************************************************
+ * Objetivo: Realizar a verificação dos itens e da forma de pagamento,
+ * e se for válido o tipo de conteúdo passado, permitir acesso aos serviçõs.
+ * Data: 11/08/2023.
+ * versão: 1.0
+ ********************************************************************************/
+
 import { ERRO_ITENS, ERRO_QUANTIDADE_ITENS, ERRO_ITEM_INVALIDO, ERRO_FORMA_PAGAMENTO, ERRO_ITEM_EXTRA } from "./modulo/config.js";
-import { cardapioDB } from "../modulo/json/cardapio.js";
-import { formaPagamentoDB } from "../modulo/json/formas-pagamento.js";
+import { cardapioDB } from "../model/cardapio.js";
+import { formaPagamentoDB } from "../model/formas-pagamento.js";
 
 const verificarItens = (itens) => {
 

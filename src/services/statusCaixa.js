@@ -1,3 +1,10 @@
+/********************************************************************
+ * Objetivo: Retorna os status do caixa com os erros ou aprovações
+ * na selação de itens e forma de pagamento.
+ * Data: 11/08/2023.
+ * Versão: 1.0
+ ********************************************************************/
+
 import { verificarItens, verificarFormaPagamento } from "../controller/validar-carrinho.js"
 import {valorDinheiro, valorCredito, valorDebito} from "./calculo.js"
  

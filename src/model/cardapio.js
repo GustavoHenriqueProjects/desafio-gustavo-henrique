@@ -1,3 +1,10 @@
+/************************************************************************
+ * Objetivo: Realizar a simulação de um cardabio vindo, por exemplo de 
+ * uma tabela no banco de dados que retorna uma array de objetos.
+ * Data: 11/08/2023
+ * Versão: 1.0
+ ************************************************************************/
+
 var cardapioDB = [
     {
         "codigo": "cafe",
