@@ -1,4 +1,4 @@
-import { ERRO_ITENS, ERRO_QUANTIDADE_ITENS, ERRO_ITEM_INVALIDO, ERRO_FORMA_PAGAMENTO } from "./modulo/config.js";
+import { ERRO_ITENS, ERRO_QUANTIDADE_ITENS, ERRO_ITEM_INVALIDO, ERRO_FORMA_PAGAMENTO, ERRO_ITEM_EXTRA } from "./modulo/config.js";
 import { cardapioDB } from "../modulo/json/cardapio.js";
 import { formaPagamentoDB } from "../modulo/json/formas-pagamento.js";
 
@@ -16,12 +16,17 @@ const verificarItens = (itens) => {
         } else if (separaDados.length === 1) {
             statusItens = ERRO_ITEM_INVALIDO.message;
         } else {
+
             itens.forEach(item => {
-                const [codigo, quantidade] = item.split(',');
-                const cardapioItem = cardapioDB.find(entry => entry.codigo === codigo);
+                let [codigo, quantidade] = item.split(',');
+                let cardapioItem = cardapioDB.find(entry => entry.codigo === codigo);
 
                 if (!cardapioItem) {
                     statusItens = ERRO_ITEM_INVALIDO.message;
+                }else {
+                    if(itens[0].toLowerCase().includes("chantily") || itens[0].toLowerCase().includes("queijo")){
+                        statusItens = ERRO_ITEM_EXTRA.message
+                    }
                 }
             });
         }

@@ -25,10 +25,10 @@ const statusCaixa = (metodoDePagamento, itens) => {
 
     let valorPagamento = ""
 
-    let statusItensVazio = verificarItens(itens)
-    if (statusItensVazio) {
+    let statusItens = verificarItens(itens)
+    if (statusItens) {
 
-        return statusItensVazio
+        return statusItens
         
     } else{
 
